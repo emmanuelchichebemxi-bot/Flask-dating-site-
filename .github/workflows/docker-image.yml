@@ -24,4 +24,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/${{ github.repository }}/flask-dating-site:latest
+          tags: ghcr.io/emmanuelchichebemxi-bot/flask-dating-site:latest
+
