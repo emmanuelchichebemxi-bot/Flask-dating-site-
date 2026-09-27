@@ -17,12 +17,10 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Build and push the Docker image
-        uses: docker/build-push-action@v5
+          password: ${{ secrets.GITHUB_TOKEN }}name: Build and push the Docker image
+       - uses: docker/build-push-action@v5
         with:
-          context: .
+          context: ./python-project
           push: true
           tags: ghcr.io/emmanuelchichebemxi-bot/flask-dating-site:latest
 
