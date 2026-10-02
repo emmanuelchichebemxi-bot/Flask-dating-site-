@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [ "main" ]
 
+permissions:
+  contents: read
+  packages: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -17,10 +21,10 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}name: Build and push the Docker image
-       - uses: docker/build-push-action@v5
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: docker/build-push-action@v5
         with:
           context: ./python-project
           push: true
-          tags: ghcr.io/emmanuelchichebemxi-bot/flask-dating-site:latest
-
+          tags: ghcr.io/${{ github.repository_owner }}/python-app:latest
